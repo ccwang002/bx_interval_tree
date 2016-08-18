@@ -8,11 +8,13 @@ preserves all information about the intervals (unlike bitset projection methods)
           Brent Pedersen (bpederse@gmail.com)
 
 Copied from bx-python's bx.interval.intersection module under MIT License.
-https://github.com/bxlab/bx-python/blob/master/lib/bx/intervals/intersection.pyx
 Commit: d3bd96f10be4380b70c508a9b339c68732b42cb5
+Source link:
+https://github.com/bxlab/bx-python/blob/master/lib/bx/intervals/intersection.pyx
 """
 
-# Original MIT License
+# Original MIT License:
+#
 # Copyright (c) 2005-2015 The Pennsylvania State University
 # Copyright (c) 2013-2015 The Johns Hopkins University
 #
