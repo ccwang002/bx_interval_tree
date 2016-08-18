@@ -2,13 +2,13 @@
 
 This package installs only the IntervalTree data structure of [bx-python].
 The source code is directly copied from `lib/bx/intervals/intersection.pyx`
-([source](https://github.com/bxlab/bx-python/blob/master/lib/bx/intervals/intersection.pyx)).
+([source]).
 
-This stanalone package requires no external dependencies which is easier to
-compile than bx-python.
+This stanalone package requires no external dependency so is easier to compile
+than bx-python.
 
 [bx-python]: https://github.com/bxlab/bx-python
-
+[source]: https://github.com/bxlab/bx-python/blob/master/lib/bx/intervals/intersection.pyx
 
 ## Installation
 
@@ -44,6 +44,11 @@ tree.find(15, 17)   # [Interval(13, 20, value={'dbSNP': False})]
 tree.find(12, 17)   # [Interval(10, 15, value={'dbSNP': True}),
                     #  Interval(13, 20, value={'dbSNP': False})]
 ```
+
+
+## Development
+
+Run test by `python setup.py test` or `nosetest` under the repo root directory.
 
 
 ## License
