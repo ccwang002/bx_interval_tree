@@ -12,7 +12,14 @@ compile than bx-python.
 
 ## Installation
 
-git clone and run `python setup.py install`.
+Run on Python 3.4+. Require [Cython] if the source is directly cloned from the
+git repo. To install run,
+
+```
+python setup.py install
+```
+
+[Cython]: http://cython.org/
 
 
 ## Usage
