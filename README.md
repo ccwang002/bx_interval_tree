@@ -13,7 +13,9 @@ compile than bx-python.
 ## Installation
 
 Run on Python 3.4+. Require [Cython] if the source is directly cloned from the
-git repo. To install run,
+git repo.
+
+To install run,
 
 ```
 python setup.py install
@@ -40,7 +42,7 @@ tree.find(5, 10)    # []
 tree.find(6, 11)    # [Interval(10, 15, value={'dbSNP': True})]
 tree.find(15, 17)   # [Interval(13, 20, value={'dbSNP': False})]
 tree.find(12, 17)   # [Interval(10, 15, value={'dbSNP': True}),
-                       Interval(13, 20, value={'dbSNP': False})]
+                    #  Interval(13, 20, value={'dbSNP': False})]
 ```
 
 
