@@ -305,7 +305,7 @@ cdef class IntervalNode:
             else:
                 # backtrace the stack and down the right node
                 current = depth_stack.pop()
-                yield current
+                yield current.interval  # yield the underlying object
                 current = current.cright
 
     def traverse(self, func):

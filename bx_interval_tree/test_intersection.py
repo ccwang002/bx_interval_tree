@@ -171,6 +171,7 @@ class LotsaTestCase(unittest.TestCase):
     def test_walk(self):
         gen = self.intervals.walk()
         first_interval = next(gen)
+        self.assertIsInstance(first_interval, Interval)
         self.assertEqual(first_interval.start, 0)
         self.assertEqual(first_interval.end, 0)
         self.assertEqual(sum(1 for x in gen), 100600)
