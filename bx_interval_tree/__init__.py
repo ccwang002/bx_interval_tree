@@ -1,4 +1,6 @@
-__version__ = '0.7.4'   # sync with upstream (bx-python) version
+__version__ = '0.7.4.post1'
+# Version number is sync with upstream (bx-python) version
+# And complies with PEP 440 specification.
 
 
 # Detect if user import the module from the source directory.
