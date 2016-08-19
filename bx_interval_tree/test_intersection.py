@@ -168,6 +168,13 @@ class LotsaTestCase(unittest.TestCase):
         u = iv.right(1, n=9999, max_dist=99999)
         self.assertEqual(len(u), 9999)
 
+    def test_walk(self):
+        gen = self.intervals.walk()
+        first_interval = next(gen)
+        self.assertEqual(first_interval.start, 0)
+        self.assertEqual(first_interval.end, 0)
+        self.assertEqual(sum(1 for x in gen), 100600)
+
     def test_max_dist(self):
         iv = self.intervals
         r = iv.right(1, max_dist=0, n=10)
@@ -222,6 +229,10 @@ class IntervalTreeTest(unittest.TestCase):
         self.iv.traverse(fn)
         self.assertEqual(len(a), self.nintervals)
 
+    def test_iteration(self):
+        self.assertTrue(next(iter(self.iv)))
+        self.assertEqual(sum(1 for i in self.iv), self.nintervals)
+
     def test_empty(self):
         iv = IntervalTree()
         self.assertEqual([], iv.find(100, 300))
@@ -232,6 +243,8 @@ class IntervalTreeTest(unittest.TestCase):
         self.assertEqual([], iv.upstream_of_interval(100))
         self.assertEqual([], iv.downstream_of_interval(100))
         self.assertEqual(None, iv.traverse(lambda x: x.append(1)))
+        with self.assertRaises(StopIteration):
+            next(iter(iv))
 
     def test_public_interval(self):
         self.iv.traverse(lambda ival: self.assertTrue(ival.interval))

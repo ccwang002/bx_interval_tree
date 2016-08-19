@@ -287,6 +287,27 @@ cdef class IntervalNode:
         r.sort(key=operator.attrgetter('start'))
         return r[:n]
 
+    def walk(self):
+        """
+        Walk through all nodes rooted on this node in sorted order.
+
+        For reference implementation see
+        http://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
+        """
+        cdef:
+            IntervalNode current = self
+            list depth_stack = []
+        while current is not EmptyNode or depth_stack:
+            if current is not EmptyNode:
+                # go deeper
+                depth_stack.append(current)
+                current = current.cleft
+            else:
+                # backtrace the stack and down the right node
+                current = depth_stack.pop()
+                yield current
+                current = current.cright
+
     def traverse(self, func):
         self._traverse(func)
 
@@ -512,6 +533,11 @@ cdef class IntervalTree:
         if self.root is None:
             return None
         return self.root.traverse(fn)
+
+    def __iter__(self):
+        if self.root is None:
+            raise StopIteration
+        yield from self.root.walk()
 
 # For backward compatibility
 Intersecter = IntervalTree
